@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.library'
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'com.undcover.freedom.pyramid'
+    compileSdk 36
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        python {
+            buildPython("C:/Users/Administrator/Desktop/tvbox-src-20261016-1740/chaquo/build/python/env/arm64_v8aRelease/Scripts/python.exe")
+            pip {
+                install "lxml"
+                install "ujson"
+                install "pyquery==2.0.2"
+                install "requests"
+                install "jsonpath"
+                install "cachetools"
+                install 'pycryptodome'
+                install "local_wheels/beautifulsoup4-4.15.0-py3-none-any.whl"
+                install "local_wheels/soupsieve-2.10-py3-none-any.whl"
+            }
+        }
+    }
+
+    flavorDimensions "mode"
+    productFlavors {
+        python32 {
+            dimension "mode"
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
+        }
+        python64 {
+            dimension "mode"
+            ndk {
+                abiFilters "arm64-v8a"
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main{
+            // Android代码模块
+            setRoot "src/main"
+            // Python代码模块，也就是你的Python源码所在项目中的文件夹
+            python.srcDirs = ["src/python"]
+        }
+    }
+    buildToolsVersion '34.0.0'
+}
+
+dependencies {
+
+}

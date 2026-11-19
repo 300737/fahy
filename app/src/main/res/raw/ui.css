@@ -1,0 +1,47 @@
+body,
+html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-family: system-ui, -apple-system, Helvetica Neue, sans-serif;
+}
+.page,
+body {
+  background-color: var(--weui-BG-0);
+}
+.page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  z-index: 1;
+}
+/* ===== TVBoxOS color theme (red #FF0055 + blue #00E5FF, dark base, original palette) ===== */
+body[data-weui-theme="dark"] {
+  --weui-BG-0: #1d202a; /* 页面底色：同宿主 dialog_panel_bg */
+  --weui-BG-1: #191c24; /* tabbar 底色 */
+  --weui-BG-2: #353744; /* 卡片/单元格：同宿主 color_353744 */
+  --weui-FG-0: rgba(255, 255, 255, 0.9);
+  --weui-FG-1: rgba(255, 255, 255, 0.55);
+  --weui-FG-2: rgba(255, 255, 255, 0.35);
+  --weui-FG-3: rgba(255, 255, 255, 0.15);
+  --weui-WHITE: #ffffff;
+  --weui-BRAND: #ff0055; /* 主强调：橙（主按钮/开关/选中态） */
+  --weui-LINK: #ff0055;
+  --weui-BTN-DEFAULT-BG: rgba(53, 55, 68, 0.9); /* 同宿主 dialog_control_bg 系 */
+  --weui-BTN-DEFAULT-COLOR: #00E5FF; /* 次按钮文字：青 */
+  --weui-BTN-DISABLED-BG: rgba(53, 55, 68, 0.4);
+}
+/* 青色焦点/高亮细节 */
+body[data-weui-theme="dark"] .weui-bar__item_on .weui-tabbar__label,
+body[data-weui-theme="dark"] .weui-bar__item_on.weui-tabbar__item {
+  color: #00E5FF;
+}
+body[data-weui-theme="dark"] .weui-cells {
+  border-radius: 8px;
+}

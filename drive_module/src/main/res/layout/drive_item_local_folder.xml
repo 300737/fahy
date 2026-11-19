@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 本地视频文件夹 item（合并入 drive_module，已 TV 化） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drive_vs_180"
+    android:background="@drawable/drive_shape_setting_model_focus"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/drive_vs_15"
+    android:paddingRight="@dimen/drive_vs_15">
+
+    <!-- 封面容器：圆角裁切（用 CardView 替代 ShadowLayout） -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/iv_container"
+        android:layout_width="@dimen/drive_vs_240"
+        android:layout_height="@dimen/drive_vs_180"
+        android:layout_gravity="center_vertical"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="@dimen/drive_vs_5"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/drive_iv_video" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/drive_vs_30"
+        android:layout_marginLeft="@dimen/drive_vs_30"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:gravity="start|center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/drive_dialog_text_primary"
+        android:textSize="@dimen/drive_ts_24"
+        tools:text="DCIM/Camera" />
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/drive_vs_15"
+        android:layout_marginLeft="@dimen/drive_vs_15"
+        android:focusable="false"
+        android:textColor="@color/drive_color_FFFFFF_70"
+        android:textSize="@dimen/drive_ts_20"
+        tools:text="10 个视频" />
+</LinearLayout>

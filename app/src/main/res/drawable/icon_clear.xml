@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- ① 顶部横线 -->
+    <path
+        android:name="line_top"
+        android:fillColor="#ffff0055"
+        android:pathData="M7,7v2h14L21,7L7,7z" />
+
+    <!-- ② 中间横线 -->
+    <path
+        android:name="line_middle"
+        android:fillColor="#FFFF0055"
+        android:pathData="M5,13h14v-2L5,11v2z" />
+
+    <!-- ③ 底部横线 -->
+    <path
+        android:name="line_bottom"
+        android:fillColor="#ffff0055"
+        android:pathData="M3,17h14v-2L3,15v2z" />
+</vector>

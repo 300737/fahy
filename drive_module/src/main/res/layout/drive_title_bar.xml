@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自绘 TitleBar 布局：替代 hjq.bar.TitleBar，纯 LinearLayout 实现 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/drive_vs_10"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/drive_vs_30"
+    android:paddingTop="@dimen/drive_vs_30"
+    android:paddingRight="@dimen/drive_vs_30"
+    android:paddingBottom="@dimen/drive_vs_30">
+
+    <View
+        android:layout_width="@dimen/drive_vs_5"
+        android:layout_height="@dimen/drive_vs_40"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/drive_vs_12"
+        android:layout_marginRight="@dimen/drive_vs_12"
+        android:background="@color/drive_color_FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/drive_title_back"
+        android:layout_width="@dimen/drive_vs_80"
+        android:layout_height="@dimen/drive_vs_80"
+        android:layout_marginEnd="@dimen/drive_vs_12"
+        android:layout_marginRight="@dimen/drive_vs_12"
+        android:background="@drawable/drive_shape_user_home"
+        android:contentDescription="@string/drive_localvideo_back"
+        android:focusable="true"
+        android:padding="@dimen/drive_vs_15"
+        android:src="@drawable/drive_icon_home" />
+
+    <!-- 标题 + 完整路径（副标题）垂直排列 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/drive_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/drive_dialog_text_primary"
+            android:textSize="@dimen/drive_ts_34"
+            android:textStyle="bold" />
+
+        <!-- 副标题：显示完整路径。
+             高度固定（不随 1 行 / 2 行变化），否则标题栏高度变化会引起整页重排，
+             在列表滚动/焦点移动时把焦点顶回第一项。 -->
+        <TextView
+            android:id="@+id/drive_title_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/drive_vs_100"
+            android:layout_marginTop="@dimen/drive_vs_2"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:lines="2"
+            android:textColor="@color/drive_dialog_text_hint"
+            android:textSize="@dimen/drive_ts_20"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/drive_title_action"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/drive_vs_80"
+        android:background="@drawable/drive_shape_title_bar_btn"
+        android:focusable="true"
+        android:clickable="true"
+        android:gravity="center"
+        android:paddingLeft="@dimen/drive_vs_30"
+        android:paddingRight="@dimen/drive_vs_30"
+        android:textColor="@color/drive_dialog_text_primary"
+        android:textSize="@dimen/drive_ts_24"
+        android:visibility="gone" />
+</LinearLayout>

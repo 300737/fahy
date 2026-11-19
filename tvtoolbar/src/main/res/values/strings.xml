@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toolbar_style_grid">Grid Layout</string>
+    <string name="toolbar_style_line">Line Layout</string>
+    <string name="toolbar_app_title">Applications</string>
+    <string name="toolbar_app_sel">Select to Uninstall</string>
+    <string name="toolbar_app_info_tip">Long-press icon to view app info</string>
+    <string name="toolbar_info_version">Version</string>
+    <string name="toolbar_info_package">Package</string>
+    <string name="toolbar_info_min_sdk">Min SDK</string>
+    <string name="toolbar_info_target_sdk">Target SDK</string>
+    <string name="toolbar_info_install_time">Installed</string>
+    <string name="toolbar_info_update_time">Updated</string>
+    <string name="toolbar_info_apk_size">APK Size</string>
+    <string name="toolbar_info_apk_path">APK Path</string>
+    <string name="toolbar_info_permissions">Permissions</string>
+    <string name="toolbar_info_none">None</string>
+    <string name="toolbar_info_clear_data">Clear Data</string>
+    <string name="toolbar_info_copy">Copy Info</string>
+    <string name="toolbar_info_copied">Copied to clipboard</string>
+</resources>

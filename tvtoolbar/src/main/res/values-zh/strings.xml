@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toolbar_style_grid">网格布局</string>
+    <string name="toolbar_style_line">横排布局</string>
+    <string name="toolbar_app_title">我的应用</string>
+    <string name="toolbar_app_sel">确定键删除当前选中应用</string>
+    <string name="toolbar_app_info_tip">长按图标查看应用属性</string>
+    <string name="toolbar_info_version">版本</string>
+    <string name="toolbar_info_package">包名</string>
+    <string name="toolbar_info_min_sdk">最低支持</string>
+    <string name="toolbar_info_target_sdk">目标版本</string>
+    <string name="toolbar_info_install_time">安装时间</string>
+    <string name="toolbar_info_update_time">更新时间</string>
+    <string name="toolbar_info_apk_size">安装包大小</string>
+    <string name="toolbar_info_apk_path">安装包路径</string>
+    <string name="toolbar_info_permissions">权限列表</string>
+    <string name="toolbar_info_none">无</string>
+    <string name="toolbar_info_clear_data">清除数据</string>
+    <string name="toolbar_info_copy">复制属性</string>
+    <string name="toolbar_info_copied">已复制到剪贴板</string>
+</resources>

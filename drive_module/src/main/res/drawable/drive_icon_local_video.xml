@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DriveActivity 主界面"本地视频"入口按钮图标：胶片+播放三角，与 drive_icon_film 系列一致 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <!-- 外框圆角矩形 -->
+    <path
+        android:fillColor="#ff00E5FF"
+        android:pathData="M192,128 L832,128 A64,64 0 0 1 896,192 L896,832 A64,64 0 0 1 832,896 L192,896 A64,64 0 0 1 128,832 L128,192 A64,64 0 0 1 192,128 Z M192,192 L192,832 L832,832 L832,192 L192,192 Z" />
+    <!-- 播放三角 -->
+    <path
+        android:fillColor="#ffff0055"
+        android:pathData="M420,340 L680,512 L420,684 Z" />
+</vector>

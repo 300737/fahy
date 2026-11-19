@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  本地兜底的 dkplayer-ui 资源。
+  原因: 升级到 AndroidX Media3 后移除了 xyz.doikki.android.dkplayer:dkplayer-ui:3.3.5
+  (该 AAR 强制依赖老版 com.google.android.exoplayer:exoplayer-ui:2.x，与 Media3 冲突)。
+  但 app/src/main/res/layout/box_vod_control_view.xml 仍在使用其中的资源，
+  故将实际被引用的那一小部分资源就地落地，值与原 AAR 完全一致。
+-->
+<resources>
+    <!-- color: 与 dkplayer-ui:3.3.5 res/values/values.xml 一致 -->
+    <color name="dkplayer_background_color">#4D000000</color>
+    <color name="dkplayer_theme_color">#39C5BB</color>
+    <color name="dkplayer_theme_color_translucent">#9939C5BB</color>
+
+    <!-- dimen: 与 dkplayer-ui:3.3.5 res/values/values.xml 一致 -->
+    <dimen name="dkplayer_controller_height">46dp</dimen>
+    <dimen name="dkplayer_controller_icon_padding">12dp</dimen>
+    <dimen name="dkplayer_controller_seekbar_max_size">1dp</dimen>
+    <dimen name="dkplayer_controller_seekbar_size_n">14dp</dimen>
+    <dimen name="dkplayer_controller_seekbar_size_s">14dp</dimen>
+    <dimen name="dkplayer_controller_text_size">16sp</dimen>
+    <dimen name="dkplayer_controller_time_text_size">14sp</dimen>
+    <dimen name="dkplayer_default_spacing">10dp</dimen>
+    <dimen name="dkplayer_play_btn_size">50dp</dimen>
+
+    <!--
+      id: 原先由 dkplayer-ui 的布局 dkplayer_layout_gesture_control_view.xml /
+      dkplayer_layout_vod_control_view.xml 通过 @+id/ 定义。
+      本项目的 box_vod_control_view.xml 用 @id/ 反向引用它们，故需在此显式声明。
+    -->
+    <item name="center_container" type="id" />
+    <item name="bottom_container" type="id" />
+
+    <!--
+      id loading: 原先由 dkplayer-ui 的 dkplayer_layout_prepare_view.xml /
+      dkplayer_layout_standard_controller.xml 定义，LiveController 里引用过 R.id.loading。
+      本项目的 player_live_control_view.xml 本身并无该控件（与迁移前行为一致，
+      findViewById 返回 null），此处仅补齐 id 以保证编译通过。
+    -->
+    <item name="loading" type="id" />
+</resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 本地视频列表页（合并入 drive_module，已 TV 化） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:paddingLeft="@dimen/drive_vs_10"
+    android:paddingRight="@dimen/drive_vs_10">
+
+    <com.github.tvbox.osc.drive.localvideo.widget.DriveTitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.github.tvbox.osc.drive.widget.DriveTvRecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingLeft="@dimen/drive_vs_30"
+            android:paddingTop="@dimen/drive_vs_10"
+            android:paddingRight="@dimen/drive_vs_30"
+            android:paddingBottom="@dimen/drive_vs_10"
+            app:tv_horizontalSpacingWithMargins="@dimen/drive_vs_10"
+            app:tv_selectedItemIsCentered="true"
+            app:tv_verticalSpacingWithMargins="@dimen/drive_vs_10" />
+    </FrameLayout>
+
+    <!-- 多选模式下的底部菜单（全选 / 删除 / 取消全选），TV 焦点导航 -->
+    <LinearLayout
+        android:id="@+id/ll_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/drive_color_000000_60"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_all_check"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/drive_vs_80"
+            android:layout_weight="1"
+            android:background="@drawable/drive_shape_title_bar_btn"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/drive_localvideo_all_check"
+            android:textColor="@color/drive_dialog_text_primary"
+            android:textSize="@dimen/drive_ts_24" />
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/drive_vs_80"
+            android:layout_weight="1"
+            android:background="@drawable/drive_shape_title_bar_btn"
+            android:enabled="false"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/drive_localvideo_delete"
+            android:textColor="@color/drive_dialog_text_hint"
+            android:textSize="@dimen/drive_ts_24" />
+
+        <TextView
+            android:id="@+id/tv_cancel_all_checked"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/drive_vs_80"
+            android:layout_weight="1"
+            android:background="@drawable/drive_shape_title_bar_btn"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/drive_localvideo_cancel_all"
+            android:textColor="@color/drive_dialog_text_primary"
+            android:textSize="@dimen/drive_ts_24" />
+    </LinearLayout>
+</LinearLayout>

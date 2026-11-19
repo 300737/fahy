@@ -1,0 +1,33 @@
+package com.github.tvbox.osc.server;
+
+/**
+ * @author pj567
+ * @date :2021/1/5
+ * @description:
+ */
+public interface DataReceiver {
+
+    /**
+     * @param text
+     */
+    void onTextReceived(String text);
+
+
+    void onApiReceived(String url);
+
+    void onLiveApiReceived(String url);
+
+    void onDanmuApiReceived(String url);
+
+    void onPushReceived(String url);
+
+    /**
+     * 远程推送：仓库/线路
+     */
+    void onPushStoreReceived(String name, String url);
+
+    /**
+     * 远程推送：直播源
+     */
+    void onLivePushReceived(String name, String address);
+}

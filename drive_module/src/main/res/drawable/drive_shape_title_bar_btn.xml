@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自绘 TitleBar 返回按钮 / 操作按钮背景，复用 drive_shape_user_home selector 风格 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape>
+            <corners android:radius="@dimen/drive_vs_5" />
+            <stroke android:width="@dimen/drive_vs_2" android:color="@android:color/white" />
+            <solid android:color="@color/drive_color_6C3D3D3D" />
+        </shape>
+    </item>
+    <item android:state_focused="false">
+        <shape>
+            <corners android:radius="@dimen/drive_vs_5" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</selector>

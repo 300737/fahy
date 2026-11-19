@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 本地视频 item（合并入 drive_module，已 TV 化，已移除播放进度条） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drive_vs_180"
+    android:background="@drawable/drive_shape_setting_model_focus"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/drive_vs_15"
+    android:paddingRight="@dimen/drive_vs_15">
+
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/iv_container"
+        android:layout_width="@dimen/drive_vs_240"
+        android:layout_height="@dimen/drive_vs_120"
+        android:layout_gravity="center_vertical"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="@dimen/drive_vs_5"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/drive_iv_video" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/drive_vs_30"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/drive_bg_gradient_black_b2t" />
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/drive_vs_8"
+                android:layout_marginBottom="@dimen/drive_vs_2"
+                android:textColor="@color/drive_dialog_text_primary"
+                android:textSize="@dimen/drive_ts_16"
+                tools:text="00:30" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 文件名过长时跑马灯滚动（焦点在该项时滚动，其余正常截断） -->
+    <com.github.tvbox.osc.drive.localvideo.widget.DriveMarqueeTextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/drive_vs_30"
+        android:layout_marginLeft="@dimen/drive_vs_30"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/drive_dialog_text_primary"
+        android:textSize="@dimen/drive_ts_24"
+        tools:text="video.mp4" />
+
+    <TextView
+        android:id="@+id/tv_video_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/drive_vs_15"
+        android:layout_marginLeft="@dimen/drive_vs_15"
+        android:focusable="false"
+        android:textColor="@color/drive_color_FFFFFF_70"
+        android:textSize="@dimen/drive_ts_20"
+        tools:text="222M" />
+
+    <TextView
+        android:id="@+id/tv_video_resolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/drive_vs_15"
+        android:layout_marginLeft="@dimen/drive_vs_15"
+        android:focusable="false"
+        android:textColor="@color/drive_color_FFFFFF_70"
+        android:textSize="@dimen/drive_ts_20"
+        tools:text="1280x720" />
+</LinearLayout>

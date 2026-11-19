@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="魔改图标"
+    android:height="24dp"
+    android:width="24dp"
+    android:autoMirrored="true"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:name="魔改图标颜色"
+        android:fillColor="#ff00E5FF"
+        android:pathData="M3,18h6v-2L3,16v2z"/>
+    <path
+        android:name="魔改图标颜色"
+        android:fillColor="#ff00E5FF"
+        android:pathData="M3,6v2h18L21,6L3,6z"/>
+    <path
+        android:name="魔改图标颜色"
+        android:fillColor="#ffff0055"
+        android:pathData="M3,13h12v-2L3,11v2z"/>
+</vector>

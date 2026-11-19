@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 应用属性弹窗圆角深色背景 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/toolbar_app_info_corner_radius" />
+    <solid android:color="#E6353744" />
+    <stroke
+        android:width="1px"
+        android:color="#33FFFFFF" />
+</shape>
