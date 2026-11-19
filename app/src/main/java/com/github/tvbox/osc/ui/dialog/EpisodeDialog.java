@@ -163,9 +163,24 @@ public class EpisodeDialog extends BaseDialog {
         Log.d(TAG, "applyFit: controlHeight=" + controlHeight
                 + " panelH=" + panel.getHeight() + " panelBottom=" + panel.getBottom());
         if (controlHeight <= 0) return;
-        // 面板约束在 dialog 全屏 window 底部；直接上移一个控制条高度，第4排底边即贴控制条上边线。
-        panel.setTranslationY(-controlHeight);
-        Log.d(TAG, "applyFit: setTranslationY=" + (-controlHeight));
+
+        // 列表高度固定(4排)，最后一行按钮底边到列表底边往往还有留白。
+        // 把这段留白补进位移，让按钮底边真正贴住控制条上边线，消掉中间那段空隙。
+        int bottomGap = 0;
+        TvRecyclerView list = findViewById(R.id.episode_list);
+        if (list != null && list.getHeight() > 0) {
+            int best = Integer.MAX_VALUE;
+            for (int i = 0; i < list.getChildCount(); i++) {
+                View child = list.getChildAt(i);
+                int d = list.getHeight() - child.getBottom();
+                if (d >= 0 && d < best) best = d;
+            }
+            if (best != Integer.MAX_VALUE) bottomGap = best;
+        }
+
+        int offset = -controlHeight + bottomGap;
+        panel.setTranslationY(offset);
+        Log.d(TAG, "applyFit: bottomGap=" + bottomGap + " setTranslationY=" + offset);
     }
 
     private static class EpisodeAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewHolder> {
