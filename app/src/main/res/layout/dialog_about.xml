@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:lineSpacingExtra="@dimen/ts_50"
         android:lineSpacingMultiplier="0"
-        android:text="繁华幻影\n\n聚合展示 · 纯净播放\n本软件仅供学习参考，请勿用于商业用途。\n\n打包分发请保留出处\nhttps://github.com/CatVodTVOfficial/TVBoxOSC\nhttps://github.com/q215613905/TVBoxOS"
+        android:text="繁华幻影\n聚合全网资源 · 呈现纯净画质\n版本 1.0.0\n构建时间 2026-11-20 12:38:00\n仅供学习参考，请勿用于商业用途。"
         android:textColor="@color/dialog_text_primary"
         android:textSize="@dimen/ts_24" />
 

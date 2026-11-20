@@ -17,9 +17,12 @@ public class AboutDialog extends BaseDialog {
         setContentView(R.layout.dialog_about);
         TextView tvAbout = findViewById(R.id.tvAbout);
         if (tvAbout != null) {
-            String info = "版本 " + BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")"
-                    + "\n构建时间 " + BuildConfig.BUILD_TIME;
-            tvAbout.setText(tvAbout.getText() + "\n\n" + info);
+            String text = "繁华幻影"
+                    + "\n聚合全网资源 · 呈现纯净画质"
+                    + "\n版本 " + BuildConfig.VERSION_NAME
+                    + "\n构建时间 " + BuildConfig.BUILD_TIME
+                    + "\n仅供学习参考，请勿用于商业用途。";
+            tvAbout.setText(text);
         }
     }
 }
