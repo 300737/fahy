@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 // 双版本物理归类：1.4.1(minSdk21)=安卓5/6；1.11.1(minSdk23)=安卓6+，media3官方要求，安卓5直接装不上
 def media3Ver = project.findProperty("media3Ver") ?: "1.11.1"
 def appMinSdk = media3Ver == "1.4.1" ? 21 : 23
+// 关于页用：每次构建自动生成北京时间，注入 BuildConfig
+def buildTime = new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("GMT+8"))
 
 android {
     namespace 'com.github.tvbox.osc'
@@ -21,6 +23,7 @@ android {
         multiDexEnabled true
         // 1.4.1 版 media3 原生支持 API19+，EXO 在安卓5可用；1.11.1 版要求 API23，低版本回退 IJK
         buildConfigField "boolean", "LEGACY_MEDIA3", (project.findProperty("media3Ver") == "1.4.1").toString()
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
         //设置room的Schema的位置
         javaCompileOptions {
             annotationProcessorOptions {
