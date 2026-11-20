@@ -2,9 +2,7 @@ apply plugin: 'com.android.application'
 
 // 双版本物理归类：1.4.1(minSdk21)=安卓5/6；1.11.1(minSdk23)=安卓6+，media3官方要求，安卓5直接装不上
 def media3Ver = project.findProperty("media3Ver") ?: "1.11.1"
-// 两个 media3 版本统一 minSdk21：安卓5/6 通吃。
-// 1.11.1 在 API<23 由 PlayerHelper 自动回退 IJK，避开 media3 的 API23+ 音频调用。
-def appMinSdk = 21
+def appMinSdk = media3Ver == "1.4.1" ? 21 : 23
 // 关于页用：每次构建自动生成北京时间，注入 BuildConfig
 def buildTime = new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("GMT+8"))
 

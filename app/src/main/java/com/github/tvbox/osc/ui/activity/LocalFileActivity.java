@@ -47,6 +47,7 @@ public class LocalFileActivity extends BaseActivity {
     private TextView tvPath;
     private TextView tvEmpty;
     private TextView tvPyConfirm;
+    private TextView tvPySelectAll;
     private LocalFileAdapter adapter;
     /** 当前目录；null 表示处于存储根列表页（内置存储 / U盘 等入口） */
     private File currentDir;
@@ -67,6 +68,7 @@ public class LocalFileActivity extends BaseActivity {
         tvPath = findViewById(R.id.tvPath);
         tvEmpty = findViewById(R.id.tvEmpty);
         tvPyConfirm = findViewById(R.id.tvPyConfirm);
+        tvPySelectAll = findViewById(R.id.tvPySelectAll);
         fileList = findViewById(R.id.fileList);
         adapter = new LocalFileAdapter();
         fileList.setAdapter(adapter);
@@ -86,6 +88,13 @@ public class LocalFileActivity extends BaseActivity {
             adapter.setPyMulti(true);
             tvPyConfirm.setVisibility(View.VISIBLE);
             tvPyConfirm.setText("确定导入(0)");
+            tvPySelectAll.setVisibility(View.VISIBLE);
+            tvPySelectAll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectAllPyInCurrentDir();
+                }
+            });
             tvPyConfirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -222,6 +231,26 @@ public class LocalFileActivity extends BaseActivity {
         data.setData(Uri.fromFile(item));
         setResult(Activity.RESULT_OK, data);
         finish();
+    }
+
+    /** 全选当前目录下所有 .py 文件（累加进已选集合，不清除其它目录已选） */
+    private void selectAllPyInCurrentDir() {
+        if (currentDir == null || !currentDir.isDirectory()) {
+            Toast.makeText(this, "请先进入py文件所在目录", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        File[] children = currentDir.listFiles();
+        if (children == null) return;
+        int added = 0;
+        for (File child : children) {
+            if (child.isFile() && child.getName().toLowerCase(Locale.ROOT).endsWith(".py")) {
+                if (selectedPyPaths.add(child.getAbsolutePath())) added++;
+            }
+        }
+        adapter.setSelectedPyPaths(selectedPyPaths);
+        adapter.notifyDataSetChanged();
+        updatePyConfirmText();
+        Toast.makeText(this, "已全选当前目录py，新增" + added + "个", Toast.LENGTH_SHORT).show();
     }
 
     private void updatePyConfirmText() {

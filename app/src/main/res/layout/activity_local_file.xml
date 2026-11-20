@@ -54,6 +54,21 @@
             android:textSize="@dimen/ts_22"
             android:visibility="gone" />
 
+        <!-- 批量导入py模式下的全选按钮，普通选择模式隐藏 -->
+        <TextView
+            android:id="@+id/tvPySelectAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vs_10"
+            android:background="@drawable/button_danmu_setting"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="@dimen/vs_10"
+            android:text="全选当前目录py"
+            android:textColor="@color/dialog_text_primary"
+            android:textSize="@dimen/ts_24"
+            android:visibility="gone" />
+
         <!-- 批量导入py模式下的确定按钮，普通选择模式隐藏 -->
         <TextView
             android:id="@+id/tvPyConfirm"
